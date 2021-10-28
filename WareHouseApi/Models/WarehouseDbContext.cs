@@ -12,7 +12,7 @@ namespace WareHouseApi.Models
         {
         }
 
-        DbSet<WareHouse> WareHouses { get; set; }
-        DbSet<Vehicle> Vehicles { get; set; } 
+        public DbSet<WareHouse> WareHouses { get; set; }
+        public DbSet<Vehicle> Vehicles { get; set; } 
     }
 }
