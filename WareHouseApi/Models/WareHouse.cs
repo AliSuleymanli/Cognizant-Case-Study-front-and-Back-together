@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace WareHouseApi.Models
@@ -12,6 +13,6 @@ namespace WareHouseApi.Models
         public double Locationlat { get; set; }
         public double Locationlong { get; set; }
         public string CarLocation { get; set; }
-        public ICollection<Vehicle> Vehicles { get; set; } 
+        [JsonIgnore] public ICollection<Vehicle> Vehicles { get; set; } 
     }
 }

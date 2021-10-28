@@ -58,3 +58,4 @@ D:\test\CognizantDemo\WareHouseApi\obj\Debug\net5.0\WareHouseApi.dll
 D:\test\CognizantDemo\WareHouseApi\obj\Debug\net5.0\ref\WareHouseApi.dll
 D:\test\CognizantDemo\WareHouseApi\obj\Debug\net5.0\WareHouseApi.pdb
 D:\test\CognizantDemo\WareHouseApi\obj\Debug\net5.0\WareHouseApi.genruntimeconfig.cache
+D:\test\CognizantDemo\WareHouseApi\obj\Debug\net5.0\WareHouseApi.csproj.AssemblyReference.cache

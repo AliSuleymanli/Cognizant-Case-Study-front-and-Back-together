@@ -18,12 +18,12 @@ namespace WareHouseApi.Repositories
 
         public async Task<IEnumerable<Vehicle>> getAll()
         {
-            return await context.Vehicles.OrderBy(x => x.DateAdded).ToListAsync();
+            return await context.Vehicles.Include(x=>x.WareHouse).OrderBy(x => x.DateAdded).ToListAsync();
         }
 
         public async Task<Vehicle> getById(int id)
         {
-            return await context.Vehicles.Where(x => x.Id == id).SingleOrDefaultAsync();
+            return await context.Vehicles.Include(x => x.WareHouse).Where(x => x.Id == id).SingleOrDefaultAsync();
         }
 
         public Task<IEnumerable<Vehicle>> search(string str)

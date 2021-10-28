@@ -13,6 +13,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WareHouseApi.Models;
+using WareHouseApi.Repositories;
+using WareHouseApi.Services;
 
 namespace WareHouseApi
 {
@@ -31,6 +33,11 @@ namespace WareHouseApi
             services.AddDbContext<WarehouseDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("LocalDbConnection")));
 
             services.AddControllers();
+
+            services.AddScoped<IVehicleRepository, VehicleRepository>();
+
+            services.AddTransient<IVehicleService, VehicleService>();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WareHouseApi", Version = "v1" });
