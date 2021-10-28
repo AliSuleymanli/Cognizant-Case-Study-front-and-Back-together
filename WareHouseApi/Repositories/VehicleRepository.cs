@@ -7,18 +7,18 @@ using WareHouseApi.Models;
 
 namespace WareHouseApi.Repositories
 {
-    public class VehicleRepository : IRepository<Vehicle>
+    public class VehicleRepository : IVehicleRepository
     {
         private readonly WarehouseDbContext context;
 
         public VehicleRepository(WarehouseDbContext _context)
         {
             context = _context;
-        }       
+        }
 
         public async Task<IEnumerable<Vehicle>> getAll()
         {
-            return await context.Vehicles.OrderBy(x=>x.DateAdded).ToListAsync();
+            return await context.Vehicles.OrderBy(x => x.DateAdded).ToListAsync();
         }
 
         public async Task<Vehicle> getById(int id)

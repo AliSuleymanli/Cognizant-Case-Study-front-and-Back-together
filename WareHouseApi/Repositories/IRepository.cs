@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace WareHouseApi.Repositories
 {
-    interface IRepository<T> 
+    public interface IRepository<T> 
     {
         Task<IEnumerable<T>> getAll();
         Task<IEnumerable<T>> search(string str);
