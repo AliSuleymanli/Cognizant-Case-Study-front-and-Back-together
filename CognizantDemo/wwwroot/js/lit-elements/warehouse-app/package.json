@@ -9,6 +9,9 @@
     "start": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wds\""
   },
   "dependencies": {
+    "@adobe/lit-mobx": "^2.0.0",
+    "@vaadin/router": "^1.7.4",
+    "jquery": "^3.6.0",
     "lit": "^2.0.2"
   },
   "devDependencies": {
