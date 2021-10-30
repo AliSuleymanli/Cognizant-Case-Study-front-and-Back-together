@@ -1,8 +1,8 @@
 let constants = {
-    rootPath: '',
+    rootPath: 'https://localhost:44331',
     ApiEndPoints: {
-        cars: '',
-        cardetail: ''
+        cars: '/Cars/GetAllCars',
+        cardetail: '/Cars/CarById'
     }
 };
 
