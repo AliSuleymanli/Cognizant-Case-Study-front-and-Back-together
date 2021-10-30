@@ -1,9 +1,14 @@
+import { MobxLitElement } from '@adobe/lit-mobx';
 import { LitElement, html, css } from 'lit';
 import { property } from 'lit/decorators.js';
 
-const logo = new URL('../../assets/open-wc-logo.svg', import.meta.url).href;
+$.ajaxSetup({
+  crossDomain: true,
+});
 
-export class WarehouseApp extends LitElement {
+//const logo = new URL('../../assets/open-wc-logo.svg', import.meta.url).href;
+
+export class WarehouseApp extends MobxLitElement {
   @property({ type: String }) title = 'My app';
 
   static styles = css`
@@ -49,9 +54,15 @@ export class WarehouseApp extends LitElement {
     }
   `;
 
+  constructor() {
+    super();
+  }
+
   render() {
     return html`
+      <h1><a href="/cars">Welcome</a></h1>
       
+      <slot></slot>
     `;
   }
 }

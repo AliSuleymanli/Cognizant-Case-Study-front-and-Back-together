@@ -21,9 +21,15 @@
   </head>
 
   <body>
-    <div id="outlet"></div>
-
+    <script>
+    window.process={
+      env:{
+        NODE_ENV:'development'
+      }
+    };
+  </script>
     <script type="module" src="./out-tsc/src/warehouse-app.js"></script>
+    <div id="outlet"></div>
   </body>
 
 </html>
