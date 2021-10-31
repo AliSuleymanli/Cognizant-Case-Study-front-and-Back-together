@@ -6,10 +6,11 @@ import "../warehouse-app";
 const routes = [{
     path: "/",
     component: "warehouse-app",
-    action: async () => {
-        await import('../WarehouseApp');
-    },
     children: [
+        {
+            path:"",
+            redirect:"/cars"
+        },
         {
             path: "cars",
             component: "car-list",

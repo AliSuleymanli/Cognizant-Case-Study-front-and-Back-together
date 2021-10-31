@@ -79,6 +79,8 @@ export class WarehouseApp extends MobxLitElement {
 
   constructor() {
     super();
+
+    
   }
 
   render() {
