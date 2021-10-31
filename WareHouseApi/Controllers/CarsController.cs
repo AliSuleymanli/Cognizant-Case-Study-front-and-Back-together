@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ using WareHouseApi.Services;
 namespace WareHouseApi.Controllers
 {
     [ApiController]
+    [EnableCors("AllowOrigin")]
     [Route("[controller]/[action]")]
     public class CarsController :ControllerBase
     {

@@ -40,6 +40,7 @@ namespace CognizantDemo
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
+            app.UseDefaultFiles();
             app.UseStaticFiles();
 
             app.UseRouting();
@@ -51,6 +52,15 @@ namespace CognizantDemo
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapControllerRoute(
+        name: "infoPage",
+        pattern: "spa/{*infoPage}",
+        defaults: new
+        {
+            controller = "Spa",
+            action = "ShowIndexPage"
+        });
             });
         }
     }

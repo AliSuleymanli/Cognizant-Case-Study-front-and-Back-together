@@ -32,6 +32,21 @@ namespace WareHouseApi
         {
             services.AddDbContext<WarehouseDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("LocalDbConnection")));
 
+            //services.AddCors(c =>
+            //{
+            //    c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+            //});
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowOrigin",
+                builder =>
+                {
+                    builder.WithOrigins(Configuration.GetSection("AllowedOrigins").Get<string[]>())
+                            .AllowAnyHeader();
+                });
+            });
+
             services.AddControllers();
 
             services.AddScoped<IVehicleRepository, VehicleRepository>();
@@ -57,6 +72,8 @@ namespace WareHouseApi
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseAuthorization();
 
