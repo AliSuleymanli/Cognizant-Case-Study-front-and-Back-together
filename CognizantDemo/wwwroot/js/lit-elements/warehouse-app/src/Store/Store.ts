@@ -7,6 +7,7 @@ class Store {
 
     public vehicles: Vehicle[] = [];
     public selectedVehicle: Vehicle = new Vehicle();
+    public shoppingCard:Vehicle[]=[];
 
     constructor() {
         makeAutoObservable(this);
@@ -36,6 +37,10 @@ class Store {
         }
 
         return new Vehicle();
+    }
+
+    public addToCard(vehicle:Vehicle){
+        this.shoppingCard.push(vehicle);
     }
 
     setMessage(message: string) {
