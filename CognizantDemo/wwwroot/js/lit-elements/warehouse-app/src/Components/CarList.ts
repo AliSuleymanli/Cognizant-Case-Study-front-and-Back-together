@@ -7,7 +7,16 @@ import { store } from "../Store/Store";
 
 @customElement("car-list")
 class CarList extends MobxLitElement {
-    static styles = [BootstrapCssMin, css``];
+    static styles = [BootstrapCssMin, css`
+    thead{
+        background: #3c3c3c;
+        color: white;
+        text-align: center;
+    }
+    table tr{
+        cursor:pointer;
+    }
+    `];
 
     render() {
         return html`
