@@ -60,8 +60,6 @@ export class WarehouseApp extends MobxLitElement {
 
   render() {
     return html`
-      <h1><a href="/cars">Welcome</a></h1>
-      
       <slot></slot>
     `;
   }

@@ -16,10 +16,31 @@ class CarList extends MobxLitElement {
     table tr{
         cursor:pointer;
     }
+
+    table td{
+        padding:0!important;
+    }
+
+    td div{
+        display:flex;
+    }
+
+    a{
+        flex: 1 1 0%;
+        padding: 8px;
+        text-decoration-line: none;
+        color: #3f3838;
+    }
+
+    h1{
+      text-align:center;
+    }
     `];
 
     render() {
         return html`
+            <h1>List Of Cars</h1>
+
             <div class="table-responsive">
                 <table class="table table-bordered table-hover">
                     ${this.thead}
@@ -41,7 +62,7 @@ class CarList extends MobxLitElement {
         return html`
             <thead>
                 <tr>
-                    ${headers.map(header => html`<td>${header}</td>`)}
+                    ${headers.map(header => html`<th>${header}</th>`)}
                 </tr>
             </thead>
         `;
@@ -52,20 +73,14 @@ class CarList extends MobxLitElement {
         return html`
             <tbody>
                 ${store.vehicles.map(vehicle => html`
-                <tr @click="${() => this.getCarDetails(vehicle)}">
-                    <td>${vehicle.model}</td>
-                    <td>${vehicle.make}</td>
-                    <td>${vehicle.year}</td>
-                    <td>${vehicle.price}</td>
+                <tr>
+                    <td><div><a href="/car/${vehicle.id}">${vehicle.model}</a></div></td>
+                    <td><div><a href="/car/${vehicle.id}">${vehicle.make}</a></div></td>
+                    <td><div><a href="/car/${vehicle.id}">${vehicle.year}</a></div></td>
+                    <td><div><a href="/car/${vehicle.id}">${vehicle.price}</a></div></td>
                 </tr>
                 `)}
             </tbody>
         `;
     }
-
-    getCarDetails(vehicle: Vehicle) {
-        console.log(vehicle.id);
-    }
-
-
 }

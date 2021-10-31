@@ -1,5 +1,6 @@
 import { Router } from "@vaadin/router";
 import { store } from "../Store/Store";
+import "../warehouse-app";
 
 
 const routes = [{
@@ -18,10 +19,12 @@ const routes = [{
             },
         },
         {
-            path: "car/id",
+            path: "car/:id",
             component: 'car-detail',
-            action: async () => {
-
+            action: async (root: any) => {
+                let carId = root.params.id;
+                await import('../Components/CarDetail');
+                await store.LoadSelectedCar(carId);
             },
         }
     ]

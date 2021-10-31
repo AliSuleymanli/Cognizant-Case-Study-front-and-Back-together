@@ -6,6 +6,7 @@ class Store {
     public message: { alert: string, rev: number } = { alert: "", rev: -1 };
 
     public vehicles: Vehicle[] = [];
+    public selectedVehicle: Vehicle = new Vehicle();
 
     constructor() {
         makeAutoObservable(this);
@@ -20,6 +21,10 @@ class Store {
         }
     }
 
+    public async LoadSelectedCar(id: number) {
+        this.selectedVehicle = await this.getCar(id);
+    }
+
     public async getCar(id: number) {
         let data = await carController.getCarDetail(id);
 
@@ -30,7 +35,7 @@ class Store {
             this.setMessage("Something went wrong on getting the car. try again later. ");
         }
 
-        return null;
+        return new Vehicle();
     }
 
     setMessage(message: string) {
