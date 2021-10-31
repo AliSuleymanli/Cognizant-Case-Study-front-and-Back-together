@@ -64,7 +64,7 @@ const stylesForModal=css`
   color: white;
 }
 
-.modal-body {padding: 2px 16px;}
+.modal-body {padding: 2px 16px;margin-top:15px}
 
 .modal-footer {
   padding: 2px 16px;

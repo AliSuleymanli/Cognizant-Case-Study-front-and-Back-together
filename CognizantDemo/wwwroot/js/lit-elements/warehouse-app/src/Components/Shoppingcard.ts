@@ -9,14 +9,21 @@ import { store } from "../Store/Store";
 
 @customElement("shopping-card")
 class ShoppingCard extends MobxLitElement{
-    static styles = [BootstrapCssMin, carListTemplate.templateCss];
+    static styles = [BootstrapCssMin, carListTemplate.templateCss,css`
+        .total-price{
+            margin-top: 15px;
+        margin-bottom: 15px;
+        text-align: right;
+        font-size: 20px;
+        }
+    `];
 
     render(){
         return html`
         ${carListTemplate.carList(store.shoppingCard)}
 
-        <div>
-            <span>Total Price: </span>
+        <div class="total-price">
+            <strong>Total Price: </strong>
             <span>${this.TotalPrice()} </span>
         </div>
         `;
@@ -26,7 +33,8 @@ class ShoppingCard extends MobxLitElement{
         let totalPrice=0;
 
         store.shoppingCard.forEach(vehicle=>{
-            return totalPrice += Number.parseFloat(vehicle.price.toString());
+            totalPrice += Number.parseFloat(vehicle.price.toString());
+            totalPrice=Math.round(totalPrice*100)/100
         });
 
         return totalPrice;

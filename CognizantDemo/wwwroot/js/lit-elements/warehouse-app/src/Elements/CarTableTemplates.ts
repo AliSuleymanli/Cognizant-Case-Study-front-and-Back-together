@@ -5,7 +5,7 @@ import { Vehicle } from "../Models/Vehicle";
 class CarTableTemplates{
     carList(array: Vehicle[]){
         return html`
-            <div class="table-responsive">
+            <div class="table-responsive" style="width:80%;margin:auto">
                 <table class="table table-bordered table-hover">
                     ${this.thead()}
                     ${this.tbody(array)}
