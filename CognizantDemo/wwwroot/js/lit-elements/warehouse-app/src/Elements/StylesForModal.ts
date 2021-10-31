@@ -3,9 +3,9 @@ import { css } from "lit";
 const stylesForModal=css`
 /* The Modal (background) */
 .modal {
-  display: none; /* Hidden by default */
+  /* display: none;  Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  z-index: 3; /* Sit on top */
   padding-top: 100px; /* Location of the box */
   left: 0;
   top: 0;
@@ -48,18 +48,19 @@ const stylesForModal=css`
   float: right;
   font-size: 28px;
   font-weight: bold;
+  margin-top:18px;
 }
 
 .close:hover,
 .close:focus {
-  color: #000;
+  /* color: #000; */
   text-decoration: none;
   cursor: pointer;
 }
 
 .modal-header {
   padding: 2px 16px;
-  background-color: #5cb85c;
+  background-color: black;
   color: white;
 }
 

@@ -1,10 +1,15 @@
 import { html, LitElement } from "lit";
-import { customElement } from "lit/decorators.js";
+import { customElement, property } from "lit/decorators.js";
+import { store } from "../Store/Store";
 import { stylesForModal } from "./StylesForModal";
 
 @customElement("modal-element")
 class Modal extends LitElement{
     static styles=[stylesForModal]
+
+    @property()
+    header:string='';
+    footer:string='';
     
     render(){
         return html`
@@ -13,15 +18,17 @@ class Modal extends LitElement{
             <!-- Modal content -->
             <div class="modal-content">
                 <div class="modal-header">
-                    <span class="close">&times;</span>
-                    <h2>Modal Header</h2>
+                    <span @click="${()=>{store.showShoppingCard=false}}" class="close">&times;</span>
+                    <h2 style="text-align:center">${this.header}</h2>
                 </div>
                 <div class="modal-body">
                     <slot></slot>
                 </div>
-                <div class="modal-footer">
-                    <h3>Modal Footer</h3>
-                </div>
+                ${this.footer.length>0?html`
+                    <div class="modal-footer">
+                        <h3>${this.footer}</h3>
+                    </div>
+                `:html``}               
             </div>
 
         </div>

@@ -13,11 +13,6 @@ class ShoppingCard extends MobxLitElement{
 
     render(){
         return html`
-        
-
-
-        <h1>Cars In The Card</h1>
-
         ${carListTemplate.carList(store.shoppingCard)}
 
         <div>

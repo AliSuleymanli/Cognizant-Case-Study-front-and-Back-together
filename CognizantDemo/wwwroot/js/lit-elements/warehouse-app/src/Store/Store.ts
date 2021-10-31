@@ -9,6 +9,8 @@ class Store {
     public selectedVehicle: Vehicle = new Vehicle();
     public shoppingCard:Vehicle[]=[];
 
+    public showShoppingCard:boolean=false;
+
     constructor() {
         makeAutoObservable(this);
     }
