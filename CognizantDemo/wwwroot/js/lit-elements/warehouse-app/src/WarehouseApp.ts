@@ -1,6 +1,7 @@
 import { MobxLitElement } from '@adobe/lit-mobx';
 import { LitElement, html, css } from 'lit';
 import { property } from 'lit/decorators.js';
+import { BootstrapCssMin } from './Elements/BootstrapCss';
 
 $.ajaxSetup({
   crossDomain: true,
@@ -11,7 +12,7 @@ $.ajaxSetup({
 export class WarehouseApp extends MobxLitElement {
   @property({ type: String }) title = 'My app';
 
-  static styles = css`
+  static styles =[ BootstrapCssMin,css`
     :host {
       min-height: 100vh;
       display: flex;
@@ -52,7 +53,20 @@ export class WarehouseApp extends MobxLitElement {
     .app-footer a {
       margin-left: 5px;
     }
-  `;
+
+    .shopping-card{
+      z-index:90;
+      position:fixed;
+      bottom:30px;
+      right:30px;
+      cursor:pointer;
+    }
+
+    svg{
+      height:100px;
+      width:100px;
+    }
+  `];
 
   constructor() {
     super();
@@ -61,6 +75,15 @@ export class WarehouseApp extends MobxLitElement {
   render() {
     return html`
       <slot></slot>
+
+      <div class="shopping-card">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket-fill" viewBox="0 0 16 16">
+      <path d="M5.071 1.243a.5.5 0 0 1 .858.514L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 6h1.717L5.07 1.243zM3.5 10.5a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3z"/>
+    </svg>
+
+
+      </div>
+      
     `;
   }
 }
